@@ -322,7 +322,7 @@
 
   const DISCORD_INVITE_CODE = "A3RuSFQdh";
   const MEMBER_COUNT_REFRESH_MS = 30000;
-  // IMPORTANTrefresh every 30s
+  // remember this refresh every 30s
 
   async function updateMemberCount(){
     const el = document.getElementById('memberCount');
@@ -331,12 +331,10 @@
       const res = await fetch(`https://discord.com/api/v10/invites/${DISCORD_INVITE_CODE}?with_counts=true`);
       if(!res.ok) throw new Error('bad response');
       const data = await res.json();
-      // approximate_member_count = total members, approximate_presence_count = online now
       if(typeof data.approximate_member_count === 'number'){
         el.textContent = data.approximate_member_count.toLocaleString();
       }
     }catch(err){
-      // Silently keep whatever count is already shown if the request fails
       console.warn('Could not refresh Discord member count:', err);
     }
   }
