@@ -1,1 +1,1 @@
-# our-website
+# discord-server
