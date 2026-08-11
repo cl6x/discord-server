@@ -319,11 +319,10 @@
 </footer>
 
 <script>
-  // Auto-updates the member count shown in the hero section using
-  // Discord's public invite lookup API (no bot / auth required).
-  // Docs: GET https://discord.com/api/v10/invites/{code}?with_counts=true
+
   const DISCORD_INVITE_CODE = "A3RuSFQdh";
-  const MEMBER_COUNT_REFRESH_MS = 30000; // refresh every 30s
+  const MEMBER_COUNT_REFRESH_MS = 30000;
+  // IMPORTANTrefresh every 30s
 
   async function updateMemberCount(){
     const el = document.getElementById('memberCount');
